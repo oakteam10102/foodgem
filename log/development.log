@@ -1,0 +1,414 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (132.9ms)[0m  CREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_id" varchar(255) NOT NULL, "resource_type" varchar(255) NOT NULL, "author_id" integer, "author_type" varchar(255), "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "namespace" varchar(255)) 
+  [1m[36m (134.1ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (133.2ms)[0m  CREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (133.8ms)[0m  [1mCREATE INDEX "index_admin_notes_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (130.0ms)[0m  CREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (125.4ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (134.0ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")
+  [1m[36m (132.2ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (134.2ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (124.4ms)[0m  [1mCREATE TABLE "ip_addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "count" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (134.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "referral_code" varchar(255), "referrer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (133.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (134.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (133.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130312045541')
+  [1m[36m (126.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130227185712')[0m
+  [1m[35m (126.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130127063936')
+  [1m[36m (149.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130127063940')[0m
+  [1m[35m (129.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130127063939')
+  [1m[36m (126.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130126215239')[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdminUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@prelaunchr.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "admin_users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 11 Sep 2014 22:31:22 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "admin@prelaunchr.com"], ["encrypted_password", "$2a$10$SORmsi020r6AWE.ZZ6GH9eQdXVZ8vmy56yiI0pWH2NLSGgLavNGla"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 11 Sep 2014 22:31:22 UTC +00:00]]
+  [1m[35m (132.6ms)[0m  commit transaction
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-12 05:31:35 +0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'taufiq.muhammadi@gmail.com' LIMIT 1[0m
+  Rendered users/new.html.erb within layouts/application (8.7ms)
+Compiled active_admin.css  (2453ms)  (pid 4993)
+Compiled bootstrap.css  (0ms)  (pid 4993)
+Compiled reset.css  (0ms)  (pid 4993)
+Compiled core.css  (4ms)  (pid 4993)
+Compiled users.css  (1ms)  (pid 4993)
+Compiled application.css  (2483ms)  (pid 4993)
+Completed 200 OK in 2654ms (Views: 2619.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-12 05:31:37 +0700
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'taufiq.muhammadi@gmail.com' LIMIT 1
+  Rendered users/new.html.erb within layouts/application (71.4ms)
+Completed 200 OK in 97ms (Views: 94.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:37 +0700
+Served asset /active_admin.css - 304 Not Modified (122ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:38 +0700
+Served asset /core.css - 200 OK (4ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:38 +0700
+Served asset /reset.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:38 +0700
+Served asset /bootstrap.css - 200 OK (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:38 +0700
+Served asset /application.css - 200 OK (114ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:38 +0700
+Served asset /users.css - 200 OK (2ms)
+
+
+Started GET "/assets/home/key.png" for 127.0.0.1 at 2014-09-12 05:31:38 +0700
+Served asset /home/key.png - 304 Not Modified (8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-09-12 05:31:55 +0700
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 3ms
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2014-09-12 05:31:55 +0700
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (2.1ms)
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (128.8ms)
+Compiled active_admin/print.css  (128ms)  (pid 4993)
+Compiled jquery.js  (4ms)  (pid 4993)
+Compiled jquery-ui.js  (7ms)  (pid 4993)
+Compiled jquery_ujs.js  (0ms)  (pid 4993)
+Compiled active_admin/lib/namespace.js  (609ms)  (pid 4993)
+Compiled active_admin/components/jquery.aa.checkbox-toggler.js  (251ms)  (pid 4993)
+Compiled active_admin/components/jquery.aa.dropdown-menu.js  (267ms)  (pid 4993)
+Compiled active_admin/components/jquery.aa.popover.js  (240ms)  (pid 4993)
+Compiled active_admin/components/jquery.aa.table-checkbox-toggler.js  (218ms)  (pid 4993)
+Compiled active_admin/pages/application.js  (210ms)  (pid 4993)
+Compiled active_admin/pages/batch_actions.js  (209ms)  (pid 4993)
+Compiled active_admin/application.js  (2110ms)  (pid 4993)
+Compiled active_admin/base.js  (2224ms)  (pid 4993)
+Compiled active_admin.js  (2231ms)  (pid 4993)
+Completed 200 OK in 2825ms (Views: 2795.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/devise/shared/_links.erb (0.8ms)
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (108.6ms)
+Completed 200 OK in 214ms (Views: 213.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin.css - 304 Not Modified (121ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/print.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /jquery-ui.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/active_admin/lib/namespace.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/lib/namespace.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/components/jquery.aa.checkbox-toggler.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/components/jquery.aa.dropdown-menu.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.popover.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/components/jquery.aa.popover.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/components/jquery.aa.table-checkbox-toggler.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/active_admin/pages/application.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/pages/application.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/active_admin/pages/batch_actions.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/pages/batch_actions.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:58 +0700
+Served asset /active_admin/application.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:59 +0700
+Served asset /active_admin/base.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2014-09-12 05:31:59 +0700
+Served asset /active_admin.js - 304 Not Modified (108ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2014-09-12 05:32:05 +0700
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hGG25Ezkp06QDs5DypCp0tOGSEwGY70aI0IOwoZwyF8=", "admin_user"=>{"email"=>"admin@prelaunchr.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = 'admin@prelaunchr.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "admin_users" SET "last_sign_in_at" = '2014-09-11 22:32:05.328595', "current_sign_in_at" = '2014-09-11 22:32:05.328595', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2014-09-11 22:32:05.331872' WHERE "admin_users"."id" = 1[0m
+  [1m[35m (154.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 269ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-09-12 05:32:05 +0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/page/index.html.arb (119.0ms)
+Completed 200 OK in 125ms (Views: 122.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:05 +0700
+Served asset /active_admin/print.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin.js" for 127.0.0.1 at 2014-09-12 05:32:05 +0700
+Served asset /active_admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:05 +0700
+Served asset /active_admin.css - 304 Not Modified (99ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-09-12 05:32:08 +0700
+Processing by Admin::UsersController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count [0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (290.1ms)
+Completed 200 OK in 305ms (Views: 293.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:09 +0700
+Served asset /active_admin.css - 304 Not Modified (118ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:09 +0700
+Served asset /active_admin/print.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin.js" for 127.0.0.1 at 2014-09-12 05:32:09 +0700
+Served asset /active_admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2014-09-12 05:32:09 +0700
+Served asset /active_admin/datepicker/datepicker-input-icon.png - 304 Not Modified (6ms)
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-nipple.png" for 127.0.0.1 at 2014-09-12 05:32:09 +0700
+Served asset /active_admin/datepicker/datepicker-nipple.png - 304 Not Modified (22ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2014-09-12 05:32:12 +0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admin_users" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count 
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (163.2ms)
+Completed 200 OK in 175ms (Views: 165.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:12 +0700
+Served asset /active_admin.css - 304 Not Modified (108ms)
+
+
+Started GET "/assets/active_admin.js" for 127.0.0.1 at 2014-09-12 05:32:12 +0700
+Served asset /active_admin.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:12 +0700
+Served asset /active_admin/print.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2014-09-12 05:32:12 +0700
+Served asset /active_admin/orderable.png - 304 Not Modified (11ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-09-12 05:32:14 +0700
+Processing by Admin::UsersController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (254.2ms)
+Completed 200 OK in 263ms (Views: 257.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:14 +0700
+Served asset /active_admin.css - 304 Not Modified (115ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:14 +0700
+Served asset /active_admin/print.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin.js" for 127.0.0.1 at 2014-09-12 05:32:14 +0700
+Served asset /active_admin.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Served asset /application.css - 304 Not Modified (88ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Served asset /active_admin.css - 304 Not Modified (80ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Served asset /core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home/key.png" for 127.0.0.1 at 2014-09-12 05:32:26 +0700
+Served asset /home/key.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2014-09-12 05:32:30 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hGG25Ezkp06QDs5DypCp0tOGSEwGY70aI0IOwoZwyF8=", "user"=>{"email"=>"test1@example.com"}, "commit"=>"Step Inside"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'test1@example.com' LIMIT 1[0m
+  [1m[35mIpAddress Load (0.3ms)[0m  SELECT "ip_addresses".* FROM "ip_addresses" WHERE "ip_addresses"."address" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "ip_addresses" ("address", "count", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["address", nil], ["count", 0], ["created_at", Thu, 11 Sep 2014 22:32:30 UTC +00:00], ["updated_at", Thu, 11 Sep 2014 22:32:30 UTC +00:00]]
+  [1m[36m (129.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "ip_addresses" SET "count" = 1, "updated_at" = '2014-09-11 22:32:30.767648' WHERE "ip_addresses"."id" = 1[0m
+  [1m[35m (105.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test1@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."referral_code" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."referral_code" = '8091693ec8' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "email", "referral_code", "referrer_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 11 Sep 2014 22:32:30 UTC +00:00], ["email", "test1@example.com"], ["referral_code", "8091693ec8"], ["referrer_id", nil], ["updated_at", Thu, 11 Sep 2014 22:32:30 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attempts", 0], ["created_at", Thu, 11 Sep 2014 22:32:30 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMailer\nobject: !ruby/class 'UserMailer'\nmethod_name: :signup_email\nargs:\n- !ruby/ActiveRecord:User\n  attributes:\n    id: 1\n    email: test1@example.com\n    referral_code: 8091693ec8\n    referrer_id: \n    created_at: 2014-09-11 22:32:30.887203347 Z\n    updated_at: 2014-09-11 22:32:30.887203347 Z\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", nil], ["run_at", Thu, 11 Sep 2014 22:32:30 UTC +00:00], ["updated_at", Thu, 11 Sep 2014 22:32:30 UTC +00:00]]
+  [1m[35m (118.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/refer-a-friend
+Completed 302 Found in 486ms (ActiveRecord: 359.3ms)
+
+
+Started GET "/refer-a-friend" for 127.0.0.1 at 2014-09-12 05:32:31 +0700
+Processing by UsersController#refer as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'test1@example.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."referrer_id" = 1
+  Rendered users/refer.html.erb within layouts/application (93.5ms)
+Completed 200 OK in 121ms (Views: 116.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:31 +0700
+Served asset /application.css - 304 Not Modified (125ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:31 +0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:31 +0700
+Served asset /active_admin.css - 304 Not Modified (93ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:31 +0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:31 +0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/core.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:31 +0700
+Served asset /core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/refer/fb.png" for 127.0.0.1 at 2014-09-12 05:32:34 +0700
+Served asset /refer/fb.png - 304 Not Modified (14ms)
+
+
+Started GET "/assets/refer/twit.png" for 127.0.0.1 at 2014-09-12 05:32:34 +0700
+Served asset /refer/twit.png - 304 Not Modified (8ms)
+
+
+Started GET "/assets/refer/progress-done.png" for 127.0.0.1 at 2014-09-12 05:32:34 +0700
+Served asset /refer/progress-done.png - 304 Not Modified (11ms)
+
+
+Started GET "/assets/refer/progress-bg.png" for 127.0.0.1 at 2014-09-12 05:32:34 +0700
+Served asset /refer/progress-bg.png - 304 Not Modified (6ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-09-12 05:32:35 +0700
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count 
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /home/taufiqm/.rvm/gems/ruby-2.0.0-p247/gems/activeadmin-0.5.1/app/views/active_admin/resource/index.html.arb (304.0ms)
+Completed 200 OK in 313ms (Views: 306.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:35 +0700
+Served asset /active_admin/print.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2014-09-12 05:32:35 +0700
+Served asset /active_admin.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/active_admin.js" for 127.0.0.1 at 2014-09-12 05:32:35 +0700
+Served asset /active_admin.js - 304 Not Modified (1ms)
